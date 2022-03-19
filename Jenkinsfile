@@ -11,22 +11,22 @@ pipeline {
          }
         stage('Clean'){
            steps{
-               sh 'dotnet clean my-new-app.sln --configuration Release'
+               bat 'dotnet clean my-new-app.sln --configuration Release'
             }
          }
         stage('Build'){
            steps{
-               sh 'dotnet build my-new-app.sln --configuration Release --no-restore'
+               bat 'dotnet build my-new-app.sln --configuration Release --no-restore'
             }
          }
         stage('Test: Unit Test'){
            steps {
-                sh 'dotnet test XUnitTestProject/XUnitTestProject.csproj --configuration Release --no-restore'
+                bat 'dotnet test XUnitTestProject/XUnitTestProject.csproj --configuration Release --no-restore'
              }
           }
         stage('Publish'){
              steps{
-               sh 'dotnet publish WebApplication/my-new-app.csproj --configuration Release --no-restore'
+               bat 'dotnet publish WebApplication/my-new-app.csproj --configuration Release --no-restore'
              }
         }
     }
