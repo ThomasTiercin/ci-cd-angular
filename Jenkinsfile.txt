@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Restore packages'){
            steps{
-               sh 'dotnet restore my-new-app.sln'
+               bat 'dotnet restore my-new-app.sln'
             }
          }
         stage('Clean'){
